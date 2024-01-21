@@ -1,4 +1,4 @@
-package com.flamyoad.filemanager.ui.theme
+package com.flamyoad.common_ui.theme
 
 import android.app.Activity
 import android.os.Build

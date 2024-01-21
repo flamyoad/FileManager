@@ -1,4 +1,4 @@
-package com.flamyoad.filemanager.ui.theme
+package com.flamyoad.common_ui.theme
 
 import androidx.compose.ui.graphics.Color
 

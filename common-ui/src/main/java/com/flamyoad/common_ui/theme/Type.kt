@@ -1,4 +1,4 @@
-package com.flamyoad.filemanager.ui.theme
+package com.flamyoad.common_ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
