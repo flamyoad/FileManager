@@ -8,4 +8,7 @@ object ProjectModules {
 
     const val musicPlayerKit = ":music-player-kit"
     const val musicPlayerKitImpl = ":music-player-kit-impl"
+
+    const val fileScanner = ":file-scanner"
+    const val fileScannerImpl = ":file-scanner-impl"
 }

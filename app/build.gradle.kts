@@ -61,6 +61,8 @@ dependencies {
     implementation(project(ProjectModules.musicPlayerKit))
     implementation(project(ProjectModules.musicPlayerKitImpl))
     implementation(project(ProjectModules.commonUi))
+    implementation(project(ProjectModules.fileScanner))
+    implementation(project(ProjectModules.fileScannerImpl))
 
     implementation(Libs.AndroidX.coreKtx)
     implementation(Libs.AndroidX.appCompat)
