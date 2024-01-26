@@ -46,10 +46,10 @@ android {
 }
 
 dependencies {
-    implementation(platform(CoreDependencies.Compose.bom))
-    implementation(CoreDependencies.Compose.ui)
-    implementation(CoreDependencies.Compose.uiGraphics)
-    implementation(CoreDependencies.Compose.toolingPreview)
-    implementation(CoreDependencies.Compose.material3)
-    implementation(CoreDependencies.Compose.activityCompose)
+    implementation(platform(Libs.Compose.bom))
+    implementation(Libs.Compose.ui)
+    implementation(Libs.Compose.uiGraphics)
+    implementation(Libs.Compose.toolingPreview)
+    implementation(Libs.Compose.material3)
+    implementation(Libs.Compose.activityCompose)
 }

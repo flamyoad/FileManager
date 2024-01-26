@@ -1,4 +1,4 @@
-object CoreDependencies {
+object Libs {
 
     const val navigationVersion = "2.5.1"
     const val lifecycleVersion = "2.6.0"
