@@ -69,6 +69,8 @@ dependencies {
     implementation(Libs.AndroidX.material)
     implementation(Libs.AndroidX.constraintLayout)
 
+    implementation(Libs.Navigation.navigationCompose)
+
     implementation(platform(Libs.Compose.bom))
     implementation(Libs.Compose.ui)
     implementation(Libs.Compose.uiGraphics)

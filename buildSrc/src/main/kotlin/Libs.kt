@@ -17,6 +17,7 @@ object Libs {
     object Navigation {
         const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
         const val navigationUi = "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+        const val navigationCompose = "androidx.navigation:navigation-compose:$navigationVersion"
     }
 
     object Compose {
