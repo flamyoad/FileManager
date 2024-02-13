@@ -42,13 +42,13 @@ android {
 }
 
 dependencies {
-    implementation(project(ProjectModules.fileScanner))
-    implementation(project(ProjectModules.common))
-
-    implementation(Libs.AndroidX.coreKtx)
     implementation(Libs.Coroutines.core)
     implementation(Libs.Coroutines.android)
 
     implementation(Libs.Hilt.hilt)
     kapt(Libs.Hilt.hiltCompiler)
+
+    testImplementation(Libs.Testing.junit)
+    testImplementation(Libs.Testing.mockito)
+    testImplementation(Libs.Testing.mockitoKotlin)
 }

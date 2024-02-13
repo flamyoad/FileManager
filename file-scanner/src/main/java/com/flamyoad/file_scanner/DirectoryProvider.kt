@@ -3,10 +3,10 @@ package com.flamyoad.file_scanner
 import kotlinx.coroutines.flow.Flow
 import java.io.File
 
-interface DirectoryScanner {
+interface DirectoryProvider {
     fun rootDirectories(): List<File>
 
-    suspend fun internalStorage(): Flow<List<File>>
+    fun internalStorage(): Flow<List<File>>
 
-    suspend fun externalStorage(): Flow<List<File>>
+    fun externalStorage(): Flow<List<File>>
 }

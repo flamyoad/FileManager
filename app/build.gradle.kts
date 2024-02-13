@@ -60,6 +60,7 @@ dependencies {
     implementation(project(ProjectModules.galleryKitImpl))
     implementation(project(ProjectModules.musicPlayerKit))
     implementation(project(ProjectModules.musicPlayerKitImpl))
+    implementation(project(ProjectModules.common))
     implementation(project(ProjectModules.commonUi))
     implementation(project(ProjectModules.fileScanner))
     implementation(project(ProjectModules.fileScannerImpl))

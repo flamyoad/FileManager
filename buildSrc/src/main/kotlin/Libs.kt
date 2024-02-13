@@ -53,7 +53,12 @@ object Libs {
     }
 
     object Testing {
+        private const val mockitoVersion = "5.10.0"
+        private const val mockitoKotlinVersion = "5.2.1"
+
         const val junit = "junit:junit:4.13.2"
+        const val mockito =  "org.mockito:mockito-core:$mockitoVersion"
+        const val mockitoKotlin = "org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVersion"
         const val junitExt = "androidx.test.ext:junit:1.1.5"
         const val espresso = "androidx.test.espresso:espresso-core:3.5.1"
         const val navigation = "androidx.navigation:navigation-testing:$navigationVersion"

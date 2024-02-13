@@ -1,5 +1,6 @@
 object ProjectModules {
     const val app = ":app"
+    const val common = ":common"
     const val commonUi = ":common-ui"
     const val buildSrc = ":buildSrc"
 

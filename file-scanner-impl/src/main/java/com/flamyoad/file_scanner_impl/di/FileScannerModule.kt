@@ -1,7 +1,8 @@
 package com.flamyoad.file_scanner_impl.di
 
-import com.flamyoad.file_scanner.DirectoryScanner
-import com.flamyoad.file_scanner_impl.DirectoryScannerImpl
+import com.flamyoad.common.CustomDispatcher
+import com.flamyoad.file_scanner.DirectoryProvider
+import com.flamyoad.file_scanner_impl.DirectoryProviderImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,7 +13,7 @@ import dagger.hilt.components.SingletonComponent
 object GalleryModule {
 
     @Provides
-    fun provideDirScanner(): DirectoryScanner {
-        return DirectoryScannerImpl()
+    fun provideDirScanner(dispatcher: CustomDispatcher): DirectoryProvider {
+        return DirectoryProviderImpl(dispatcher)
     }
 }
