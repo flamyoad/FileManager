@@ -2,6 +2,7 @@ import com.android.build.api.dsl.ApplicationExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import com.android.build.gradle.LibraryExtension
+import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.provideDelegate
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
@@ -30,8 +31,7 @@ class LibraryGradlePlugin: Plugin<Project> {
 
 internal fun applyCommonPlugins(project: Project) {
     project.apply {
-        plugin("kotlin-android")
-        plugin("kotlin-kapt")
+        plugin("org.jetbrains.kotlin.android")
     }
 }
 
@@ -76,7 +76,7 @@ private fun configureWithAppPlugin(project: Project) {
 }
 
 private fun configureWithLibraryPlugin(project: Project) {
-    project.extensions.getByType(LibraryExtension::class.java).apply {
+    project.extensions.getByType<LibraryExtension>().apply {
         compileSdk = AppConfigs.compileSdk
         defaultConfig {
             minSdk = AppConfigs.minSdk
