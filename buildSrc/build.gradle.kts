@@ -21,6 +21,7 @@ plugins {
 dependencies {
     implementation("com.android.tools.build:gradle:8.2.1")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0")
+    implementation("com.grab.grazel:grazel-gradle-plugin:0.4.0")
 
     /**
      * https://github.com/google/dagger/issues/3068
