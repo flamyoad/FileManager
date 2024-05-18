@@ -4,9 +4,7 @@ import kotlinx.coroutines.flow.Flow
 import java.io.File
 
 interface DirectoryProvider {
-    fun rootDirectories(): List<File>
+    fun rootDirectories(): Flow<List<File>>
 
-    fun internalStorage(): Flow<List<File>>
-
-    fun externalStorage(): Flow<List<File>>
+    fun observeDir(file: File): Flow<List<File>>
 }

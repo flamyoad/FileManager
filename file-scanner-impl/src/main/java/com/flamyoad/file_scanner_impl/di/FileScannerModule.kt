@@ -10,10 +10,10 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-object GalleryModule {
+object FileScannerModule {
 
     @Provides
-    fun provideDirScanner(dispatcher: CustomDispatcher): DirectoryProvider {
+    fun provideDirectoryProvider(dispatcher: CustomDispatcher): DirectoryProvider {
         return DirectoryProviderImpl(dispatcher)
     }
 }

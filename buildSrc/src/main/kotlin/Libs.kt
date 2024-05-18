@@ -3,6 +3,7 @@ object Libs {
     const val navigationVersion = "2.5.1"
     const val lifecycleVersion = "2.6.0"
     const val hiltVersion = "2.50"
+    const val androidxHiltVersion = "1.2.0"
     const val dataStoreVersion = "1.0.0"
     const val coroutineVersion = "1.6.0"
 
@@ -40,6 +41,7 @@ object Libs {
     object Hilt {
         const val hilt = "com.google.dagger:hilt-android:$hiltVersion"
         const val hiltCompiler = "com.google.dagger:hilt-android-compiler:$hiltVersion"
+        const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:$androidxHiltVersion"
     }
 
     object Coroutines {
