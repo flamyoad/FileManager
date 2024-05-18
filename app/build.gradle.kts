@@ -64,6 +64,8 @@ dependencies {
     implementation(project(ProjectModules.commonUi))
     implementation(project(ProjectModules.fileScanner))
     implementation(project(ProjectModules.fileScannerImpl))
+    implementation(project(ProjectModules.explorer))
+    implementation(project(ProjectModules.explorerImpl))
 
     implementation(Libs.AndroidX.coreKtx)
     implementation(Libs.AndroidX.appCompat)
@@ -82,6 +84,7 @@ dependencies {
     implementation(Libs.Lifecycle.runtimeKtx)
 
     implementation(Libs.Hilt.hilt)
+    implementation(Libs.Hilt.hiltNavigationCompose)
     kapt(Libs.Hilt.hiltCompiler)
 
     implementation(Libs.timber)

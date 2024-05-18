@@ -12,4 +12,7 @@ object ProjectModules {
 
     const val fileScanner = ":file-scanner"
     const val fileScannerImpl = ":file-scanner-impl"
+
+    const val explorer = ":explorer"
+    const val explorerImpl = ":explorer-impl"
 }
