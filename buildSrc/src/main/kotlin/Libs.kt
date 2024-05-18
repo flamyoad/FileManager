@@ -1,7 +1,7 @@
 object Libs {
 
     const val navigationVersion = "2.5.1"
-    const val lifecycleVersion = "2.6.0"
+    const val lifecycleVersion = "2.8.0"
     const val hiltVersion = "2.50"
     const val androidxHiltVersion = "1.2.0"
     const val dataStoreVersion = "1.0.0"
