@@ -1,0 +1,31 @@
+load("@io_bazel_rules_kotlin//kotlin:core.bzl",  "kt_javac_options",  "kt_kotlinc_options",  "define_kt_toolchain")
+
+kt_kotlinc_options(
+  name = "kt_kotlinc_options",
+  x_use_ir = False
+)
+
+kt_javac_options(
+  name = "kt_javac_options"
+)
+
+define_kt_toolchain(
+  name = "kotlin_toolchain",
+  api_version = "1.4",
+  experimental_use_abi_jars = True,
+  experimental_multiplex_workers = True,
+  javac_options = "//:kt_javac_options",
+  jvm_target = "1.8",
+  kotlinc_options = "//:kt_kotlinc_options",
+  language_version = "1.4",
+  experimental_report_unused_deps = "off",
+  experimental_strict_kotlin_deps = "off"
+)
+
+load("@dagger//:workspace_defs.bzl",  "dagger_rules")
+
+dagger_rules()
+load("@grab_bazel_common//toolchains:toolchains.bzl",  "configure_common_toolchains")
+
+configure_common_toolchains()
+
