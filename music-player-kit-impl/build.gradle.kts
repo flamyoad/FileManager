@@ -2,7 +2,7 @@ plugins {
     id("com.android.library")
     id("android-library-base")
     id("android-library-compose")
-    id("kotlin-kapt")
+    id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
 }
 
@@ -20,7 +20,7 @@ dependencies {
     implementation(Libs.Lifecycle.runtimeKtx)
 
     implementation(Libs.Hilt.hilt)
-    kapt(Libs.Hilt.hiltCompiler)
+    ksp(Libs.Hilt.hiltCompiler)
 
     testImplementation(Libs.Testing.junit)
     androidTestImplementation(Libs.Testing.junitExt)

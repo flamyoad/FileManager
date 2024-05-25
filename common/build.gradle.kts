@@ -1,7 +1,7 @@
 plugins {
     id("com.android.library")
     id("android-library-base")
-    id("kotlin-kapt")
+    id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
 }
 
@@ -14,7 +14,7 @@ dependencies {
     implementation(Libs.Coroutines.android)
 
     implementation(Libs.Hilt.hilt)
-    kapt(Libs.Hilt.hiltCompiler)
+    ksp(Libs.Hilt.hiltCompiler)
 
     testImplementation(Libs.Testing.junit)
     testImplementation(Libs.Testing.mockito)

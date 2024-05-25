@@ -2,7 +2,7 @@ plugins {
     id("com.android.library")
     id("android-library-base")
     id("android-library-compose")
-    id("kotlin-kapt")
+    id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
     kotlin("plugin.serialization")
 }
@@ -26,7 +26,7 @@ dependencies {
 
     implementation(Libs.Hilt.hilt)
     implementation(Libs.Hilt.hiltNavigationCompose)
-    kapt(Libs.Hilt.hiltCompiler)
+    ksp(Libs.Hilt.hiltCompiler)
 
     testImplementation(Libs.Testing.junit)
 }

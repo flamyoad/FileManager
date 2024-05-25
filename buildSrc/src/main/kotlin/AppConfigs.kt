@@ -14,5 +14,5 @@ object AppConfigs {
     const val jvmTarget = "1.8"
     val javaVersion = JavaVersion.VERSION_1_8
 
-    const val kotlinCompilerExtensionVersion = "1.5.1"
+    const val kotlinCompilerExtensionVersion = "1.5.3"
 }
