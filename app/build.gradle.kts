@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     id("android-application-compose")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
+    id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
 }
 
@@ -77,7 +77,7 @@ dependencies {
 
     implementation(Libs.Hilt.hilt)
     implementation(Libs.Hilt.hiltNavigationCompose)
-    kapt(Libs.Hilt.hiltCompiler)
+    ksp(Libs.Hilt.hiltCompiler)
 
     implementation(Libs.timber)
 
