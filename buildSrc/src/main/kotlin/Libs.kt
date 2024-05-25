@@ -1,6 +1,6 @@
 object Libs {
 
-    const val navigationVersion = "2.5.1"
+    const val navigationVersion = "2.8.0-beta01" // https://medium.com/androiddevelopers/navigation-compose-meet-type-safety-e081fb3cf2f8
     const val lifecycleVersion = "2.6.0"
     const val hiltVersion = "2.50"
     const val androidxHiltVersion = "1.2.0"
@@ -28,6 +28,7 @@ object Libs {
         const val uiGraphics = "androidx.compose.ui:ui-graphics"
         const val toolingPreview = "androidx.compose.ui:ui-tooling-preview"
         const val material3 = "androidx.compose.material3:material3"
+        const val materialIconsExtended = "androidx.compose.material:material-icons-extended:1.6.7"
     }
 
     object Lifecycle {
@@ -52,6 +53,10 @@ object Libs {
     object DataStore {
         const val dataStore = "androidx.datastore:datastore:$dataStoreVersion"
         const val dataStorePreferences = "androidx.datastore:datastore-preferences:$dataStoreVersion"
+    }
+
+    object KotlinX {
+        const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3"
     }
 
     object Testing {

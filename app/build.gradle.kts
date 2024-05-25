@@ -74,6 +74,8 @@ dependencies {
 
     implementation(Libs.Navigation.navigationCompose)
 
+    implementation(Libs.KotlinX.serialization)
+
     implementation(platform(Libs.Compose.bom))
     implementation(Libs.Compose.ui)
     implementation(Libs.Compose.uiGraphics)

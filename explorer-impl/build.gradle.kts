@@ -3,6 +3,7 @@ plugins {
     id("android-library-base")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    kotlin("plugin.serialization")
 }
 
 android {
@@ -24,7 +25,9 @@ dependencies {
     implementation(project(ProjectModules.commonUi))
 
     implementation(Libs.AndroidX.coreKtx)
-    
+
+    implementation(Libs.KotlinX.serialization)
+
     implementation(Libs.Coroutines.core)
     implementation(Libs.Coroutines.android)
 

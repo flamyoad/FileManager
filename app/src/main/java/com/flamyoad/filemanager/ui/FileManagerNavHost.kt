@@ -4,21 +4,26 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import com.flamyoad.explorer_impl.HOME_PAGE_ROUTE
+import com.flamyoad.explorer_impl.FileListRoute
+import com.flamyoad.explorer_impl.HomePageRoute
+import com.flamyoad.explorer_impl.fileListRoute
 import com.flamyoad.explorer_impl.homePageRoute
 
 @Composable
 fun FileManagerNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController,
-    startDestination: String = HOME_PAGE_ROUTE
 ) {
     NavHost(
         navController = navController,
-        startDestination = startDestination,
+        startDestination = HomePageRoute,
         modifier = modifier
     ) {
-        homePageRoute()
+        homePageRoute(
+            onNavigateToFileList = { directory ->
+                navController.navigate(FileListRoute(directory))
+            }
+        )
+        fileListRoute()
     }
 }
