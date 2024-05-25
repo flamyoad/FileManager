@@ -1,19 +1,32 @@
 package com.flamyoad.explorer_impl
 
-import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
-import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
-import com.flamyoad.explorer_impl.ui.HomePageScreen
+import androidx.navigation.toRoute
+import com.flamyoad.explorer_impl.ui.filelist.FileListScreen
+import com.flamyoad.explorer_impl.ui.homepage.HomePageScreen
+import kotlinx.serialization.Serializable
+import java.io.File
 
-const val HOME_PAGE_ROUTE = "homepage"
+@Serializable
+object HomePageRoute
 
-fun NavController.navigateToHomePage(navOptions: NavOptions) {
-    navigate(HOME_PAGE_ROUTE, navOptions)
+@Serializable
+data class FileListRoute(
+    val directoryPath: String
+)
+
+fun NavGraphBuilder.homePageRoute(onNavigateToFileList: (String) -> Unit) {
+    composable<HomePageRoute> {
+        HomePageScreen(
+            onNavigateToFileList = onNavigateToFileList
+        )
+    }
 }
 
-fun NavGraphBuilder.homePageRoute() {
-    composable(route = HOME_PAGE_ROUTE) {
-        HomePageScreen()
+fun NavGraphBuilder.fileListRoute() {
+    composable<FileListRoute> { backstackEntry ->
+        val route: FileListRoute = backstackEntry.toRoute()
+        FileListScreen(directory = File(route.directoryPath))
     }
 }

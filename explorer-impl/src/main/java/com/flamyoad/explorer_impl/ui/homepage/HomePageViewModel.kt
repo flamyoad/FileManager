@@ -1,6 +1,5 @@
-package com.flamyoad.explorer_impl.ui
+package com.flamyoad.explorer_impl.ui.homepage
 
-import android.os.Environment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.flamyoad.file_scanner.DirectoryProvider

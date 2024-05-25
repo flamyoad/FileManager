@@ -20,4 +20,8 @@ dependencies {
     implementation(Libs.Compose.toolingPreview)
     implementation(Libs.Compose.material3)
     implementation(Libs.Compose.activityCompose)
+
+    // https://developer.android.com/reference/kotlin/androidx/compose/material/icons/package-summary
+    // TODO: Due to the very large size of this library, make sure to use R8/Proguard to strip unused icons if you are including this library as a direct dependency
+    api(Libs.Compose.materialIconsExtended)
 }
