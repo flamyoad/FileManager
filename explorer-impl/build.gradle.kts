@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("android-library-base")
+    id("android-library-compose")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
     kotlin("plugin.serialization")
@@ -8,15 +9,7 @@ plugins {
 
 android {
     namespace = "com.flamyoad.explorer_impl"
-
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = AppConfigs.kotlinCompilerExtensionVersion
-    }
 }
-
 
 dependencies {
     implementation(project(ProjectModules.explorer))
@@ -30,17 +23,6 @@ dependencies {
 
     implementation(Libs.Coroutines.core)
     implementation(Libs.Coroutines.android)
-
-    implementation(Libs.Navigation.navigationCompose)
-
-    implementation(Libs.Lifecycle.runtimeCompose)
-
-    implementation(platform(Libs.Compose.bom))
-    implementation(Libs.Compose.ui)
-    implementation(Libs.Compose.uiGraphics)
-    implementation(Libs.Compose.toolingPreview)
-    implementation(Libs.Compose.material3)
-    implementation(Libs.Compose.activityCompose)
 
     implementation(Libs.Hilt.hilt)
     implementation(Libs.Hilt.hiltNavigationCompose)

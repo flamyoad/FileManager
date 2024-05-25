@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("android-application-compose")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
@@ -39,7 +40,6 @@ android {
         jvmTarget = AppConfigs.jvmTarget
     }
     buildFeatures {
-        compose = true
         viewBinding = true
 
         // https://medium.com/androiddevelopers/5-ways-to-prepare-your-app-build-for-android-studio-flamingo-release-da34616bb946
@@ -70,18 +70,8 @@ dependencies {
     implementation(Libs.AndroidX.coreKtx)
     implementation(Libs.AndroidX.appCompat)
     implementation(Libs.AndroidX.material)
-    implementation(Libs.AndroidX.constraintLayout)
-
-    implementation(Libs.Navigation.navigationCompose)
 
     implementation(Libs.KotlinX.serialization)
-
-    implementation(platform(Libs.Compose.bom))
-    implementation(Libs.Compose.ui)
-    implementation(Libs.Compose.uiGraphics)
-    implementation(Libs.Compose.toolingPreview)
-    implementation(Libs.Compose.material3)
-    implementation(Libs.Compose.activityCompose)
 
     implementation(Libs.Lifecycle.runtimeKtx)
 
@@ -94,8 +84,4 @@ dependencies {
     testImplementation(Libs.Testing.junit)
     androidTestImplementation(Libs.Testing.junitExt)
     androidTestImplementation(Libs.Testing.espresso)
-    androidTestImplementation(platform(Libs.Testing.Compose.bom))
-    androidTestImplementation(Libs.Testing.Compose.junit)
-    debugImplementation(Libs.Testing.Compose.uiTooling)
-    debugImplementation(Libs.Testing.Compose.uiTestManifest)
 }
