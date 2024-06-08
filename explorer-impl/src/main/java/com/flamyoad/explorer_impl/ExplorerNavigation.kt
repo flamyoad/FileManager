@@ -24,9 +24,12 @@ fun NavGraphBuilder.homePageRoute(onNavigateToFileList: (String) -> Unit) {
     }
 }
 
-fun NavGraphBuilder.fileListRoute() {
+fun NavGraphBuilder.fileListRoute(onNavigateToFileList: (String) -> Unit) {
     composable<FileListRoute> { backstackEntry ->
         val route: FileListRoute = backstackEntry.toRoute()
-        FileListScreen(directory = File(route.directoryPath))
+        FileListScreen(
+            path = File(route.directoryPath),
+            onNavigateToFileList = onNavigateToFileList
+        )
     }
 }

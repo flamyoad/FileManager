@@ -26,9 +26,7 @@ class DirectoryProviderImpl(
     override fun observeDir(file: File): Flow<List<File>> {
         return flow {
             val dirs = mutableListOf<File>()
-            getInternalStorage().listFiles()
-                ?.filter { it.isDirectory }
-                ?.onEach {
+            file.listFiles()?.onEach {
                     dirs += it
                     emit(dirs)
                 }
