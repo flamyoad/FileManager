@@ -21,6 +21,8 @@ dependencies {
 
     implementation(Libs.KotlinX.serialization)
 
+    implementation(Libs.coil)
+
     implementation(Libs.Coroutines.core)
     implementation(Libs.Coroutines.android)
 

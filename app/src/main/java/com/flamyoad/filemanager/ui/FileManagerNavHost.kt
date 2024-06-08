@@ -24,6 +24,10 @@ fun FileManagerNavHost(
                 navController.navigate(FileListRoute(directory))
             }
         )
-        fileListRoute()
+        fileListRoute(
+            onNavigateToFileList = { directory ->
+                navController.navigate(FileListRoute(directory))
+            }
+        )
     }
 }

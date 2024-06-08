@@ -1,6 +1,7 @@
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 import com.android.build.api.dsl.CommonExtension
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 internal fun Project.configureAndroidCompose(commonExtension: CommonExtension<*, *, *, *, *>) {
     commonExtension.apply {
@@ -10,6 +11,12 @@ internal fun Project.configureAndroidCompose(commonExtension: CommonExtension<*,
 
         composeOptions {
             kotlinCompilerExtensionVersion = AppConfigs.kotlinCompilerExtensionVersion
+        }
+
+        tasks.withType(KotlinCompile::class.java).configureEach {
+            compilerOptions {
+                freeCompilerArgs.add("-opt-in=androidx.compose.material3.ExperimentalMaterial3Api")
+            }
         }
     }
 
