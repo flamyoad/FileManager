@@ -1,5 +1,7 @@
 package com.flamyoad.filemanager.ui
 
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -17,6 +19,8 @@ fun FileManagerNavHost(
     NavHost(
         navController = navController,
         startDestination = HomePageRoute,
+        enterTransition = { EnterTransition.None },
+        exitTransition = { ExitTransition.None },
         modifier = modifier
     ) {
         homePageRoute(
