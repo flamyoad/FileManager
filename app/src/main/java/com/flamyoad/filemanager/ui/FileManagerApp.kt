@@ -3,6 +3,7 @@ package com.flamyoad.filemanager.ui
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForwardIos
 import androidx.compose.material.icons.filled.Menu
@@ -14,25 +15,49 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
+import com.flamyoad.explorer_impl.FileListRoute
+import com.flamyoad.explorer_impl.HomePageRoute
+import java.io.File
 
 @Composable
 internal fun FileManagerApp(
     navController: NavHostController = rememberNavController(),
     viewModel: FileManagerAppViewModel = hiltViewModel()
 ) {
-    val backStackEntry by navController.currentBackStackEntryAsState()
-    val currentScreen = backStackEntry?.destination?.route
+
+    navController.addOnDestinationChangedListener { controller, currentDestination, _ ->
+        // Route, NavDestination, NavBackStackEntry?? fwhat the fuck
+        if (currentDestination.hasRoute(FileListRoute::class)) {
+            val route = controller.currentBackStackEntry?.toRoute<FileListRoute>()
+                ?: return@addOnDestinationChangedListener
+            viewModel.onMovedToDir(route.directoryPath)
+        } else if (currentDestination.hasRoute(HomePageRoute::class)) {
+            viewModel.clearHistory()
+        }
+    }
+
+    val history by viewModel.directoryHistoryFlow().collectAsStateWithLifecycle()
+
     Scaffold(
         topBar = {
             CustomTopAppBar(
-
+                directoryHistory = history,
+                onNavigateToDirectory = {
+                    navController.popBackStack(FileListRoute(it.path), inclusive = false)
+                },
+                onNavigateToHome = {
+                    navController.popBackStack(HomePageRoute, inclusive = false)
+                }
             )
         }
     ) { innerPadding ->
@@ -45,12 +70,16 @@ internal fun FileManagerApp(
 
 @Composable
 private fun CustomTopAppBar(
-
+    directoryHistory: List<File>,
+    onNavigateToDirectory: (File) -> Unit,
+    onNavigateToHome: () -> Unit
 ) {
     TopAppBar(
         title = {
             AppBarDirectoryScrollView(
-                folders = listOf("Home", "o0o")
+                folders = directoryHistory,
+                onNavigateToDirectory = onNavigateToDirectory,
+                onNavigateToHome = onNavigateToHome,
             )
         },
         navigationIcon = {
@@ -68,14 +97,30 @@ private fun CustomTopAppBar(
 
 @Composable
 private fun AppBarDirectoryScrollView(
-    folders: List<String>
+    folders: List<File>,
+    onNavigateToDirectory: (File) -> Unit,
+    onNavigateToHome: () -> Unit
 ) {
+    val lazyListState = rememberLazyListState()
+    LaunchedEffect(folders) {
+        lazyListState.animateScrollToItem(lazyListState.layoutInfo.totalItemsCount)
+    }
+
     LazyRow(
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
+        state = lazyListState
     ) {
+        item {
+            TextButton(onClick = { onNavigateToHome() }) {
+                Text("Home")
+            }
+            if (folders.isNotEmpty()) {
+                Icon(Icons.AutoMirrored.Default.ArrowForwardIos, "Next")
+            }
+        }
         itemsIndexed(items = folders) { index, item ->
-            TextButton(onClick = {}) {
-                Text(item)
+            TextButton(onClick = { onNavigateToDirectory(item) }) {
+                Text(item.name)
             }
             if (index < folders.lastIndex) {
                 Icon(Icons.AutoMirrored.Default.ArrowForwardIos, "Next")

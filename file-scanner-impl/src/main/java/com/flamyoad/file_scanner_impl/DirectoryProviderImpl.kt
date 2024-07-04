@@ -26,10 +26,11 @@ class DirectoryProviderImpl(
     override fun observeDir(file: File): Flow<List<File>> {
         return flow {
             val dirs = mutableListOf<File>()
+            emit(dirs)
             file.listFiles()?.onEach {
-                    dirs += it
-                    emit(dirs)
-                }
+                dirs += it
+                emit(dirs)
+            }
         }.flowOn(dispatcher.io())
     }
 
