@@ -19,16 +19,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.flamyoad.common_ui.theme.widgets.DirectoryItem
-import com.flamyoad.common_ui.theme.widgets.FileItem
+import com.flamyoad.common_ui.widgets.DirectoryItem
+import com.flamyoad.common_ui.widgets.FileItem
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.filled.ErrorOutline
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import com.flamyoad.common.UiState
-import com.flamyoad.common_ui.theme.LoadingScreen
+import com.flamyoad.common_ui.LoadingScreen
 import java.io.File
 
 @Composable

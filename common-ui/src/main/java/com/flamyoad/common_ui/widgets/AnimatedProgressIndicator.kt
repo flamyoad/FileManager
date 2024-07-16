@@ -1,4 +1,4 @@
-package com.flamyoad.common_ui.theme.widgets
+package com.flamyoad.common_ui.widgets
 
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState

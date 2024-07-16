@@ -2,14 +2,20 @@ package com.flamyoad.gallery_kit_impl
 
 import android.content.Context
 import android.content.Intent
+import com.flamyoad.common.RouteEmitter
 import com.flamyoad.gallery_kit.GalleryKit
+import java.io.File
 
-class GalleryKitImpl: GalleryKit {
+class GalleryKitImpl(
+    private val routeEmitter: RouteEmitter
+): GalleryKit {
 
-    override fun openImage(context: Context) {
-        // todo: Replace with real impl
-        Intent(context, GalleryActivity::class.java).also {
-            context.startActivity(it)
-        }
+    override fun openImage(directory: File, selectedPicture: File) {
+        routeEmitter.emitRoute(
+            ImageViewerRoute(
+                directoryPath = directory.path,
+                selectedPicture = selectedPicture.path
+            )
+        )
     }
 }

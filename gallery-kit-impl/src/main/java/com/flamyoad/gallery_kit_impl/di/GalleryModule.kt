@@ -1,5 +1,6 @@
 package com.flamyoad.gallery_kit_impl.di
 
+import com.flamyoad.common.RouteEmitter
 import com.flamyoad.gallery_kit.GalleryKit
 import com.flamyoad.gallery_kit_impl.GalleryKitImpl
 import dagger.Module
@@ -14,7 +15,7 @@ object GalleryModule {
 
     @Provides
     @Singleton
-    fun provideGalleryKit(): GalleryKit {
-        return GalleryKitImpl()
+    fun provideGalleryKit(routeEmitter: RouteEmitter): GalleryKit {
+        return GalleryKitImpl(routeEmitter)
     }
 }
