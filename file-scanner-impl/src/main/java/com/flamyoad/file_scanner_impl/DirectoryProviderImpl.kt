@@ -26,7 +26,13 @@ class DirectoryProviderImpl(
     override fun observeDir(file: File): Flow<List<File>> {
         return flow {
             val dirs = mutableListOf<File>()
-            emit(dirs)
+//            if (file.listFiles().isNotEmpty()) {
+//                while (true) {
+//                    dirs += file.listFiles().get(0)
+//                    kotlinx.coroutines.delay(500)
+//                    emit(dirs)
+//                }
+//            }
             file.listFiles()?.onEach {
                 dirs += it
                 emit(dirs)

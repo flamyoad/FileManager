@@ -23,9 +23,11 @@ import com.flamyoad.common_ui.widgets.DirectoryItem
 import com.flamyoad.common_ui.widgets.FileItem
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.foundation.lazy.items
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.lifecycle.Lifecycle
 import com.flamyoad.common.UiState
 import com.flamyoad.common_ui.LoadingScreen
 import java.io.File
@@ -68,8 +70,9 @@ internal fun FileListScreen(
                 EmptyScreen() // todo swiperefreshlayout
             }
             LazyColumn(modifier = modifier) {
+//                items(files, key = { file -> file.path }) {
                 items(files) {
-                    if (it.isDirectory) {
+                if (it.isDirectory) {
                         DirectoryItem(file = it, onClick = { file ->
                             onNavigateToFileList(file.path)
                         })
