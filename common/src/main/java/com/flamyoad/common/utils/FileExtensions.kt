@@ -9,6 +9,8 @@ import java.io.File
 
 fun File.isApk(): Boolean = extension == "apk"
 
+fun File.isImage(): Boolean = extension in listOf("jpg", "png", "jpeg")
+
 fun File.getApkIcon(context: Context): Bitmap? {
     val packageManager = context.packageManager
     val packageInfo = packageManager.getPackageArchiveInfo(this.path, 0)

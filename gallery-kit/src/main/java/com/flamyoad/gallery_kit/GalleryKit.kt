@@ -1,7 +1,7 @@
 package com.flamyoad.gallery_kit
 
-import android.content.Context
+import java.io.File
 
 interface GalleryKit {
-    fun openImage(context: Context)
+    fun openImage(directory: File, selectedPicture: File)
 }

@@ -10,6 +10,7 @@ import com.flamyoad.explorer_impl.FileListRoute
 import com.flamyoad.explorer_impl.HomePageRoute
 import com.flamyoad.explorer_impl.fileListRoute
 import com.flamyoad.explorer_impl.homePageRoute
+import com.flamyoad.gallery_kit_impl.imageViewerRoute
 
 @Composable
 fun FileManagerNavHost(
@@ -33,5 +34,6 @@ fun FileManagerNavHost(
                 navController.navigate(FileListRoute(directory))
             }
         )
+        imageViewerRoute()
     }
 }

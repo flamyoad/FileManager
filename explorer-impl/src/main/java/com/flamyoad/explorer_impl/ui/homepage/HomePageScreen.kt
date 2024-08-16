@@ -30,7 +30,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.flamyoad.common_ui.theme.widgets.AnimatedProgressIndicator
+import com.flamyoad.common_ui.widgets.AnimatedProgressIndicator
 import java.io.File
 
 @Composable

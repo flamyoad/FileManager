@@ -1,4 +1,4 @@
-package com.flamyoad.common_ui.theme.widgets
+package com.flamyoad.common_ui.widgets
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable

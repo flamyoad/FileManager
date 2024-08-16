@@ -27,6 +27,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.flamyoad.explorer_impl.FileListRoute
 import com.flamyoad.explorer_impl.HomePageRoute
+import com.flamyoad.gallery_kit_impl.ImageViewerRoute
 import java.io.File
 
 @Composable
@@ -43,6 +44,16 @@ internal fun FileManagerApp(
             viewModel.onMovedToDir(route.directoryPath)
         } else if (currentDestination.hasRoute(HomePageRoute::class)) {
             viewModel.clearHistory()
+        }
+    }
+
+    LaunchedEffect(Unit) {
+        viewModel.routeStream.collect {
+            when (it) {
+                is ImageViewerRoute -> {
+                    navController.navigate(ImageViewerRoute(it.directoryPath, it.selectedPicture))
+                }
+            }
         }
     }
 

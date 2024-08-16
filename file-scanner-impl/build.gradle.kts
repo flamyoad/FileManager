@@ -12,6 +12,7 @@ android {
 dependencies {
     implementation(project(ProjectModules.fileScanner))
     implementation(project(ProjectModules.common))
+    implementation(project(ProjectModules.galleryKit))
 
     implementation(Libs.AndroidX.coreKtx)
     implementation(Libs.Coroutines.core)

@@ -1,4 +1,4 @@
-package com.flamyoad.common_ui.theme
+package com.flamyoad.common_ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
