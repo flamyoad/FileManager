@@ -11,11 +11,11 @@ abstract class BaseViewModel: ViewModel() {
 
     fun <T> Flow<T>.toStateFlow(
         initialState: T,
-        stopTimeoutMillis: Long = 500L
+        started: SharingStarted = SharingStarted.WhileSubscribed(stopTimeoutMillis = 5000L),
     ): StateFlow<T> {
             return stateIn(
                 scope = this@BaseViewModel.viewModelScope,
-                started = SharingStarted.WhileSubscribed(stopTimeoutMillis = stopTimeoutMillis),
+                started = started,
                 initialValue = initialState,
             )
     }
