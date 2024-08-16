@@ -8,6 +8,7 @@ import com.flamyoad.file_scanner.DirectoryProvider
 import com.flamyoad.file_scanner.FileHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.filterNotNull
@@ -33,7 +34,7 @@ internal class FileListViewModel @Inject constructor(
         .flatMapLatest { directoryProvider.observeDir(it) }
         .map<List<File>, UiState<List<File>>> { UiState.Success(it) } // oh no...we shoul;dnt have to
         .catch { emit(UiState.Error(it)) }
-        .toStateFlow(initialState = UiState.Loading)
+        .toStateFlow(initialState = UiState.Loading, started = SharingStarted.Lazily)
 
     fun initPath(path: File) {
         currentPath.update { path }
