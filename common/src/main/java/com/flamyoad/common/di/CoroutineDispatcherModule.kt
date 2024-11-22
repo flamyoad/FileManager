@@ -1,7 +1,7 @@
 package com.flamyoad.common.di
 
 import com.flamyoad.common.CustomDispatcher
-import com.flamyoad.common.CustomDispatcherImpl
+import com.flamyoad.common.AppCoroutineDispatchers
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,6 +15,6 @@ object CustomDispatcherModule {
     @Provides
     @Singleton
     fun provideCustomDispatcher(): CustomDispatcher {
-        return CustomDispatcherImpl()
+        return AppCoroutineDispatchers()
     }
 }

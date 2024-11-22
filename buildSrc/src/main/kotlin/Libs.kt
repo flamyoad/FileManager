@@ -48,6 +48,7 @@ object Libs {
     object Coroutines {
         const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"
         const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
+        const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion"
     }
 
     object DataStore {
@@ -69,6 +70,7 @@ object Libs {
         const val junitExt = "androidx.test.ext:junit:1.1.5"
         const val espresso = "androidx.test.espresso:espresso-core:3.5.1"
         const val navigation = "androidx.navigation:navigation-testing:$navigationVersion"
+        const val turbine = "app.cash.turbine:turbine:1.2.0"
 
         object Compose {
             const val bom = "androidx.compose:compose-bom:2023.08.00"

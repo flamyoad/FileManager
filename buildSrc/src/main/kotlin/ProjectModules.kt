@@ -3,6 +3,7 @@ object ProjectModules {
     const val common = ":common"
     const val commonUi = ":common-ui"
     const val buildSrc = ":buildSrc"
+    const val testShared = ":test-shared"
 
     const val galleryKit = ":gallery-kit"
     const val galleryKitImpl = ":gallery-kit-impl"
@@ -15,4 +16,5 @@ object ProjectModules {
 
     const val explorer = ":explorer"
     const val explorerImpl = ":explorer-impl"
+
 }

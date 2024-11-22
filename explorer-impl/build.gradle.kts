@@ -30,5 +30,5 @@ dependencies {
     implementation(Libs.Hilt.hiltNavigationCompose)
     ksp(Libs.Hilt.hiltCompiler)
 
-    testImplementation(Libs.Testing.junit)
+    testImplementation(project(ProjectModules.testShared))
 }
