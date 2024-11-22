@@ -12,11 +12,10 @@ android {
 dependencies {
     implementation(Libs.Coroutines.core)
     implementation(Libs.Coroutines.android)
+    implementation(Libs.Coroutines.test)
 
     implementation(Libs.Hilt.hilt)
     ksp(Libs.Hilt.hiltCompiler)
 
-    testImplementation(Libs.Testing.junit)
-    testImplementation(Libs.Testing.mockito)
-    testImplementation(Libs.Testing.mockitoKotlin)
+    testImplementation(project(ProjectModules.testShared))
 }
